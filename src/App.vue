@@ -54,21 +54,23 @@ export default {
  },
  methods: {
   ResetGame() {
-   this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-   this.player = 'x';
-   this.player;
-   this.board[randomStart()] = 'x';
-   this.isGame = false;
-   this.player = 'o';
-  },
-  isWithComp() {
-   console.log(this.withComp);
-   if (!this.isGame && !this.withComp) {
-    console.log('work');
+   if (!this.withComp) {
+    this.player = 'x';
+    this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    this.withComp = ref(false);
+    this.isGame = ref(false);
+   } else {
+    this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    this.player = 'x';
+    this.player;
     this.board[randomStart()] = 'x';
+    this.isGame = false;
     this.player = 'o';
    }
+  },
+  isWithComp() {
    this.withComp = !this.withComp;
+   this.ResetGame();
   },
   makeMove(x) {
    if (typeof this.board[x] === 'number' && this.withComp) {

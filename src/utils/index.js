@@ -85,6 +85,5 @@ export function minimax(newBoard, player) {
    }
   }
  }
- console.log(moves[bestMove]);
  return moves[bestMove];
 }
